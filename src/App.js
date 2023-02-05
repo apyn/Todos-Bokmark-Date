@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Layout from './Components/Layout/Layout';
+import LinkComponenet from './Components/LinkComponenet/LinkComponenet';
+import Time from './Components/Time/Time';
+import TodoList from './Components/Todos/TodoList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div className='dark:bg-slate-800 h-auto w-full'>
+
+    <Layout>
+    <div className="container mx-auto">
+      <div className='md:grid md:grid-cols-12 gap-4'>
+       <div className='col-span-3  '>     
+      <TodoList/>
+       
+         </div>
+       <div className=' col-span-6'>
+        <LinkComponenet/>
+       </div>
+       <div className='col-span-3'>
+        <Time/>
+       </div>
+      </div>
     </div>
+    </Layout>
+    // </div>
   );
 }
 
