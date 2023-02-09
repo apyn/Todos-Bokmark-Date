@@ -46,19 +46,19 @@ const TodoList = () => {
     setTodo(storage)
 }, [])
   return (
-    <div className={hide ? " blur-sm bg-white dark:bg-slate-700 rounded-2xl shadow-xl flex flex-col justify-center overflow-hidden" :"bg-white dark:bg-slate-700 rounded-2xl shadow-xl flex flex-col justify-center overflow-hidden "}>
+    <div className="bg-white dark:bg-slate-700 rounded-2xl shadow-xl flex flex-col justify-center overflow-hidden ">
       {/* Header */}
       <div className="flex justify-between items-center  p-4 border-b-2 dark:text-zinc-300 border-indigo-900 dark:border-zinc-300 mt-1">
         <h1 className="text-indigo-900 dark:text-zinc-300 font-black text-2xl ">
           دست نویس
         </h1>
-        <div onClick={()=>setHide(!hide)}   className=" cursor-pointer flex items-center justify-between dark:bg-slate-400 dark:text-zinc-300 bg-indigo-800 text-white font-bold text-xs rounded-lg px-2 py-2">
+        <div onClick={()=>setHide(!hide)}   className=" cursor-pointer flex items-center justify-between dark:bg-slate-800 dark:text-zinc-300 bg-indigo-800 text-white font-bold text-xs rounded-lg px-2 py-2">
           <BiHide   className="h-4 w-4 ml-1 " />
           مخفی کردن
         </div>
       </div>
       {/* Todo */}
-      <div className="text-gray-500 dark:text-zinc-200 h-96 p-4 overflow-y-auto ">
+      <div className={hide ? "blur-sm text-gray-500 dark:text-zinc-200 h-96 p-4 overflow-y-auto" :"text-gray-500 dark:text-zinc-200 h-96 p-4 overflow-y-auto "}>
         {todo.map((t) => {
           return (
             <div className="flex items-center justify-between py-1  hover:bg-gray-100 dark:hover:bg-zinc-400 border-b-2">
@@ -67,10 +67,10 @@ const TodoList = () => {
                 <input
                   onChange={() => competetHandler(t.id)}
                   type="checkbox"
-                  className={t.iscompleted ? "text-blue-200 outline-none focus:ring-gray-100 rounded" : "form-checkbox ml-1 rounded"}
+                  className={t.iscompleted ? "form-checkbo text-indigo-800 dark:text-slate-900 outline-none focus:ring-0 rounded" : "form-checkbox ml-1 rounded"}
                   checked={t.iscompleted}
                 />
-                <span className={t.iscompleted ? "line-through text-slate-400" : "text-sm  text-slate-700 font-bold"}> {t.text} </span>
+                <span className={t.iscompleted ? "line-through text-slate-400" : "text-sm dark:text-zinc-300  text-slate-700 font-bold"}> {t.text} </span>
               </div>
               <div className="flex items-center justify-between gap-x-3 ">
                 <BsTrash onClick={()=>deleteHandler(t.id)} className="cursor-pointer hover:fill-red-600" />
@@ -92,7 +92,7 @@ const TodoList = () => {
   
           <button
             type="submit"
-            className="bg-indigo-800 dark:bg-slate-900 dark:text-zinc-300 text-indigo-300  text-2xl rounded-xl px-3 py-3"
+            className="bg-indigo-900 dark:bg-slate-900 dark:text-zinc-300 text-white  text-2xl rounded-xl px-3 py-3"
           >
             +
           </button>

@@ -11,16 +11,17 @@ function App() {
 
     <Layout>
     <div className="container mx-auto">
-      <div className='md:grid md:grid-cols-12 gap-4'>
-       <div className='col-span-3  '>     
+      <div className='md:grid md:grid-cols-12  grid gap-4'>
+       <div className='col-span-3 '>     
       <TodoList/>
        
          </div>
-       <div className=' col-span-6'>
+       <div className='md:col-span-6 col-span-3 mb-8'>
         <LinkComponenet/>
        </div>
-       <div className='col-span-3'>
+       <div className='col-span-3 '>
         <Time/>
+        
        </div>
       </div>
     </div>

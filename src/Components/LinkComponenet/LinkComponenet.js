@@ -1,5 +1,11 @@
 import { BiSearch } from 'react-icons/bi'
-import { Link, NavLink } from 'react-router-dom'
+import {
+  Link,
+  Navigate,
+  NavLink,
+  useNavigate,
+  useParams,
+} from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react'
 import { BsTrash } from 'react-icons/bs'
@@ -7,6 +13,9 @@ const LinkComponenet = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState({ link: '', title: '' })
   const [link, setlink] = useState([])
+  const [search, setSearch] = useState('')
+  const navi = useNavigate()
+
   function closeModal() {
     setIsOpen(false)
     // setlink([...link, NewLink])
@@ -27,7 +36,7 @@ const LinkComponenet = () => {
     }
     setlink([...link, NewLink])
 
-    localStorage.setItem("link",JSON.stringify([...link, NewLink]))
+    localStorage.setItem('link', JSON.stringify([...link, NewLink]))
 
     setText({ title: '', link: '' })
     closeModal()
@@ -35,31 +44,40 @@ const LinkComponenet = () => {
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem('link')) || []
     setlink(storage)
-}, [])
-const deleteHandler =(id)=>{
- const filterd = link.filter(item => item.id !== id)
- setlink(filterd)
- localStorage.setItem("link",JSON.stringify(filterd))
-
-}
+  }, [])
+  const deleteHandler = (id) => {
+    const filterd = link.filter((item) => item.id !== id)
+    setlink(filterd)
+    localStorage.setItem('link', JSON.stringify(filterd))
+  }
+  const searchHander = (e) => {
+    setSearch(e.target.value)
+  }
   return (
-    <div className="flex flex-col ">
-      <div className="flex justify-between items-center bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
+    <div className="flex flex-col  container mx-auto ">
+      <div className="hidden md:flex justify-between items-center bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
         <input
+          onChange={searchHander}
+          value={search}
           type="text"
-          className="rounded-3xl w-full outline-none text-center dark:bg-gray-400 bg-gray-200 py-2"
+          className="rounded-3xl w-full outline-none text-center dark:bg-gray-400 bg-gray-100 py-2 ring-0"
         ></input>
         <BiSearch className="h-6 w-6 absolute mr-2" />
-        <button className="bg-indigo-900 dark:bg-slate-800 dark:text-zinc-200 text-white text-base font-bold rounded-3xl px-4 py-2">
+        <Link
+          to={`https://www.google.com/search?q=${search}`}
+          replace
+          className="bg-indigo-900 dark:bg-slate-800 dark:text-zinc-200 text-white text-base font-bold rounded-3xl px-4 py-2"
+        >
           جستجو
-        </button>
+        </Link>
       </div>
       <div className="flex justify-between items-center p-2">
         <div
-          onClick={() => setIsOpen(!isOpen)}
-          className=" p-2 cursor-pointer w-full text-indigo-800 hover:text-indigo-900 dark:text-zinc-300  flex items-center justify-center font-bold"
+         
+          className=" flex items-center justify-start "
         >
-          افزودن لینک جدید         <>
+         <button className='p-2  bg-indigo-900  text-white rounded-lg shadow-md  dark:bg-slate-700 dark:text-zinc-300  ' onClick={() => setIsOpen(!isOpen)} >  افزودن لینک </button>
+          <>
             <Transition appear show={isOpen} as={Fragment}>
               <Dialog as="div" className="relative z-10" onClose={closeModal}>
                 <Transition.Child
@@ -85,7 +103,7 @@ const deleteHandler =(id)=>{
                       leaveFrom="opacity-100 scale-100"
                       leaveTo="opacity-0 scale-95"
                     >
-                      <Dialog.Panel className="w-full justify-center items-center max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                      <Dialog.Panel className="justify-center items-center md:max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                         <Dialog.Title
                           as="h3"
                           className="text-sm text-center font-medium leading-6 text-gray-900"
@@ -141,16 +159,25 @@ const deleteHandler =(id)=>{
           </>
         </div>
       </div>
-     <div className=' rounded-md flex items-center  gap-2 p-2 '>
-     {link.map(item =>{
-        return <div className='relative'>
-             <a href={item.link} target="_blank" className=" flex items-center justify-center cursor-pointer w-20 h-20 bg-white hover:bg-gray-100 dark:bg-slate-700 dark:text-zinc-300 rounded-2xl shadow-lg  font-bold">
-          {item.title}
-        </a>
-         <BsTrash onClick={()=>deleteHandler(item.id)} className=" opacity-0 hover:opacity-100 text-gray-200 w-3 h-3 cursor-pointer absolute top-1 left-2 hover:fill-red-600" />
-        </div>
-       })}
-     </div>
+      <div className=" grid rounded-md grid-cols-4 md:grid-cols-7 gap-2 p-2 ">
+        {link.map((item) => {
+          return (
+            <div className="relative">
+              <a
+                href={item.link}
+                target="_blank"
+                className=" flex items-center justify-center cursor-pointer w-20 h-20 bg-white hover:bg-gray-100 dark:bg-slate-700 dark:text-zinc-300 rounded-2xl shadow-lg  font-bold"
+              >
+                {item.title}
+              </a>
+              <BsTrash
+                onClick={() => deleteHandler(item.id)}
+                className=" opacity-0 hover:opacity-100 text-gray-200 w-3 h-3 cursor-pointer absolute top-1 left-2 hover:fill-red-600"
+              />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
