@@ -1,15 +1,17 @@
 import { BiSearch } from 'react-icons/bi'
 import {
   Link,
-  Navigate,
-  NavLink,
+
   useNavigate,
-  useParams,
+
 } from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react'
 import { BsTrash } from 'react-icons/bs'
-const LinkComponenet = () => {
+import { FcGoogle } from 'react-icons/fc'
+
+
+const FavoriteLink = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState({ link: '', title: '' })
   const [link, setlink] = useState([])
@@ -18,7 +20,7 @@ const LinkComponenet = () => {
 
   function closeModal() {
     setIsOpen(false)
-    // setlink([...link, NewLink])
+
   }
 
   function openModal() {
@@ -55,13 +57,16 @@ const LinkComponenet = () => {
   }
   return (
     <div className="flex flex-col  container mx-auto ">
-      <div className="hidden md:flex justify-between items-center bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
+      <div className="hidden md:flex relative justify-between items-center bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
         <input
           onChange={searchHander}
           value={search}
           type="text"
-          className="rounded-3xl w-full outline-none text-center dark:bg-gray-400 bg-gray-100 py-2 ring-0"
-        ></input>
+          placeholder='جستجو در گوگل .....'
+          className="rounded-3xl w-full outline-none text-center placeholder:text-sm dark:placeholder:text-zinc-300 dark:bg-gray-400 bg-gray-100 py-2 ring-0"
+        >
+        </input>
+          <FcGoogle className='absolute h-6 w-6 left-28'/>
         <BiSearch className="h-6 w-6 absolute mr-2" />
         <Link
           to={`https://www.google.com/search?q=${search}`}
@@ -182,4 +187,4 @@ const LinkComponenet = () => {
   )
 }
 
-export default LinkComponenet
+export default FavoriteLink

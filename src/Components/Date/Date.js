@@ -1,11 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {BsFillSunFill} from "react-icons/bs"
 import {BiTimer} from "react-icons/bi"
-import {TiWeatherPartlySunny} from "react-icons/ti"
-import DatePersion from './DatePersion'
 
-const Time = () => {
+
+const Date = () => {
   const [value, setValue] = useState()
 
   useEffect(() => {
@@ -39,28 +37,19 @@ const Time = () => {
        <span className='text-xs text-slate-800 font-bold dark:text-zinc-300'>زمان سنج</span>
        </a>
         </div>
-        <div className="bg-white dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md  flex flex-col justify-center items-center gap-3">
-            <BsFillSunFill className='h-6 w-6 fill-amber-500 text-center'/>
-            <span className='text-indigo-800 dark:text-zinc-300 font-bold text-lg'>{value.season.name}</span>
-            <a href='https://weather.com/fa-IR/weather/today' className='flex justify-between items-center gap-1 rounded-md  hover:bg-zinc-100 dark:hover:bg-zinc-400 p-1'>
-       <TiWeatherPartlySunny/>
-       <span className='text-xs text-slate-800 dark:text-zinc-300 '>پیش بینی کامل</span>
-       </a>
-             </div>
-      </div>
-      <div className="bg-white dark:bg-slate-700 w-full rounded-xl shadow-md  p-2 flex gap-x-4">
-        <div className="flex flex-col justify-center items-center gap-1 p-2">
-          <span className="text-indigo-800 dark:text-zinc-300 text-base">
+        <div className="bg-white dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md gap-x-2  flex justify-center items-center ">
+              <div className="flex flex-col items-center justify-between  ">
+          <span className="text-indigo-800 dark:text-zinc-300 text-lg font-extrabold ">
             {value.date.weekday.name}
           </span>
-          <span className="text-indigo-800 dark:text-zinc-300 text-3xl font-extrabold">
+          <span className="text-indigo-800 dark:text-zinc-300 text-lg font-extrabold">
             {value.date.day.number.fa}
           </span>
-          <span className="text-indigo-800 dark:text-zinc-300 text-base font-bold">
+          <span className="text-indigo-800 dark:text-zinc-300 text-lg font-extrabold">
             {value.date.month.name}
           </span>
         </div>
-        <div className="flex flex-col  items-start p-2 gap-2">
+          <div className="flex flex-col items-center justify-between gap-y-3">
           <span className="text-orange-700 dark:text-orange-200 text-xs ">
             {value.date.other.ghamari.usual.fa}
           </span>
@@ -70,16 +59,13 @@ const Time = () => {
           <span className="text-orange-700 text-xs dark:text-orange-200 ">
             {value.date.full.official.usual.fa}
           </span>
-        <div className='text-indigo-900 text-sm text-center font-bold dark:text-zinc-300'>{value.date.day.events.local?.text}</div>
+       
         </div>
+             </div>
       </div>
-      <div className="bg-white w-full dark:bg-slate-700 dark:text-zinc-300 rounded-lg shadow-md  h-64">
-        <div>  
-          <DatePersion/>
-        </div>
-      </div>
+      
     </div>
   )
 }
 
-export default Time
+export default Date
