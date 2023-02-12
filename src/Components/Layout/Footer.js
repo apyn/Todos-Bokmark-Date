@@ -17,7 +17,7 @@ const Footer = () => {
       }, [])
 console.log(text);
     return ( 
-        <section className="bottom-0 fixed w-full dark:bg-slate-700 dark:text-zinc-200 bg-indigo-100 rounded-t-lg shadow-2xl text-sm text-center h-10 flex items-center justify-center  text-indigo-900 font-bold">
+        <section className="bottom-0 dark:opacity-80 fixed w-full dark:bg-slate-700 dark:text-zinc-200 bg-indigo-100 rounded-t-lg shadow-2xl text-sm text-center h-10 flex items-center justify-center  text-indigo-900 font-bold">
             <div >{text}</div>
             <div>
                 

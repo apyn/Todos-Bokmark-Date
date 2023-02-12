@@ -44,7 +44,7 @@ const TodoList = () => {
     setTodo(storage)
   }, [])
   return (
-    <div className="bg-white dark:bg-slate-700 rounded-2xl shadow-xl flex flex-col justify-center overflow-hidden ">
+    <div className="bg-white dark:bg-slate-700 dark:opacity-90 opacity-90 rounded-2xl shadow-xl flex flex-col justify-center overflow-hidden ">
       {/* Header */}
       <div className="flex justify-between items-center  p-4 border-b-2 dark:text-zinc-300 border-indigo-900 dark:border-zinc-300 mt-1">
         <h1 className="text-indigo-900 dark:text-zinc-300 font-black text-2xl ">

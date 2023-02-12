@@ -25,7 +25,7 @@ const Date = () => {
   return (
     <div className="flex flex-col justify-between items-center  gap-4 container mx-auto ">
       <div className="grid grid-cols-2 w-full gap-2">
-        <div className="bg-white  dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md  flex flex-col  items-center">
+        <div className="bg-white dark:opacity-90 opacity-90  dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md  flex flex-col  items-center">
           <span className="text-gray-500 dark:text-zinc-300 text-xs mt-2 ">
             {value.timezone.name}
           </span>
@@ -37,7 +37,7 @@ const Date = () => {
        <span className='text-xs text-slate-800 font-bold dark:text-zinc-300'>زمان سنج</span>
        </a>
         </div>
-        <div className="bg-white dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md gap-x-2  flex justify-center items-center ">
+        <div className="bg-white dark:opacity-90 opacity-90 dark:bg-slate-700 dark:text-zinc-300 rounded-xl shadow-md gap-x-2  flex justify-center items-center ">
               <div className="flex flex-col items-center justify-between  ">
           <span className="text-indigo-800 dark:text-zinc-300 text-lg font-extrabold ">
             {value.date.weekday.name}
@@ -49,7 +49,7 @@ const Date = () => {
             {value.date.month.name}
           </span>
         </div>
-          <div className="flex flex-col items-center justify-between gap-y-3">
+          <div className="flex flex-col items-end  gap-y-3">
           <span className="text-orange-700 dark:text-orange-200 text-xs ">
             {value.date.other.ghamari.usual.fa}
           </span>

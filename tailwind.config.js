@@ -5,7 +5,11 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'back': "url('/src/Assets/Image/22.jpg')",
+            }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

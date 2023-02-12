@@ -57,7 +57,7 @@ const FavoriteLink = () => {
   }
   return (
     <div className="flex flex-col  container mx-auto ">
-      <div className="hidden md:flex relative justify-between items-center bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
+      <div className="hidden md:flex relative justify-between items-center dark:opacity-90 opacity-90 bg-white dark:bg-slate-700 rounded-xl shadow-lg px-2 py-4 gap-x-2">
         <input
           onChange={searchHander}
           value={search}
@@ -71,7 +71,7 @@ const FavoriteLink = () => {
         <Link
           to={`https://www.google.com/search?q=${search}`}
           replace
-          className="bg-indigo-900 dark:bg-slate-800 dark:text-zinc-200 text-white text-base font-bold rounded-3xl px-4 py-2"
+          className="bg-indigo-900 dark:opacity-90 opacity-90 dark:bg-slate-800 dark:text-zinc-200 text-white text-base font-bold rounded-3xl px-4 py-2"
         >
           جستجو
         </Link>
@@ -171,7 +171,7 @@ const FavoriteLink = () => {
               <a
                 href={item.link}
                 target="_blank"
-                className=" flex items-center justify-center cursor-pointer w-20 h-20 bg-white hover:bg-gray-100 dark:bg-slate-700 dark:text-zinc-300 rounded-2xl shadow-lg  font-bold"
+                className=" flex items-center justify-center cursor-pointer w-20 h-20 bg-white hover:bg-gray-100 dark:bg-slate-700 dark:opacity-90 opacity-90 dark:text-zinc-300 rounded-2xl shadow-lg  font-bold"
               >
                 {item.title}
               </a>

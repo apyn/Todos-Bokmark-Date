@@ -67,7 +67,7 @@ const searchHandler =(e)=>{
             
  
   return (
-    <div className="bg-white w-full dark:bg-slate-700 dark:text-zinc-300 rounded-lg shadow-md  max-h-96 overflow-y-auto h-96 p-2 mt-4">
+    <div className="bg-white w-full dark:bg-slate-700 dark:opacity-90 opacity-90 dark:text-zinc-300 rounded-lg shadow-md  max-h-96 overflow-y-auto h-96 p-2 mt-4">
     <div className="overflow-hidden">
       <div className="flex items-center justify-between mt-2 px-2 ">
         <h1 className="text-indigo-900 dark:text-zinc-300 font-black">
@@ -165,7 +165,7 @@ const searchHandler =(e)=>{
         onChange={searchHandler}
           type="text"
           placeholder='جستجو نام و شماره تلفن'
-          className="rounded-md outline-none text-center text-xs w-full  dark:text-slate-900 bg-indigo-100 text-indigo-900 dark:bg-zinc-400 "
+          className="rounded-md outline-none text-center text-xs w-full dark:placeholder:text-zinc-300 dark:text-slate-900 bg-indigo-100 text-indigo-900 dark:bg-zinc-400 "
         />
       </div>
       <div className="flex flex-col justify-between items-center  w-full overflow-y-auto ">
@@ -179,11 +179,11 @@ const searchHandler =(e)=>{
                <HiOutlineUserCircle className='h-8 w-8  stroke-slate-700 ml-2 dark:stroke-zinc-300'/>
                 <div className='flex flex-col  justify-start '>
                 <div className='flex gap-x-4 items-center  '>
-                  <div className='text-xs'>نام :</div>
+                  <div className='text-sm text-slate-800 dark:text-zinc-300'>نام :</div>
                 <div className="text-sm  dark:text-zinc-300 font-bold text-slate-800">{p.name} </div>
                 </div>
                 <div className='flex gap-x-1  items-center '>
-                  <span className='text-xs'>شماره :</span>
+                  <div className='text-sm text-slate-800 dark:text-zinc-300'>شماره :</div>
                 <span className=" text-sm text-right dark:text-zinc-300 text-slate-600">{p.tel} </span>
                 </div>
                 </div>
